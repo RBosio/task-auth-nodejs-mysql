@@ -1,0 +1,30 @@
+<div class="container p-4">
+  <div class="row">
+    {{#if tasks}}
+    {{#each tasks}}
+    <div class="col-md-3">
+      <div class="card text-center">
+        <div class="card-header">
+          <h5 class="text-uppercase">{{title}}</h5>
+        </div>
+        <div class="card-body">
+          <p>{{description}}</p>
+          <p>{{formatTime created_at}}</p>
+          <div class="btn-group">
+            <a href="/task/edit/{{id}}" class="btn btn-info">Edit</a>
+            <a href="/task/delete/{{id}}" class="btn btn-danger">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <div class="card mx-auto text-center">
+      <div class="card-body">
+        <h4>You don't have tasks</h4>
+        <a href="/task/add" class="btn btn-info">Create One!</a>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</div>
